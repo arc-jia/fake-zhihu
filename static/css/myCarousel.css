@@ -1,0 +1,59 @@
+h3{
+    font-family:'宋体';
+    font-size:32px;
+    color: #2aabd2;
+}
+h4{
+    color: #2aabd2;
+}
+a.ass{
+    float: right;
+    font-size: 14px;
+}
+
+a.list-group-item{
+    border: 0;
+    padding: 4px;
+    margin: 4px;
+}
+
+p.moment{
+    color: #888888;
+}
+
+a.moment-title{
+    font-weight:bold;
+}
+
+p.moment-content{
+    color: #245269;
+    margin-bottom: 0px;
+}
+
+#a2{
+    float: left;
+    color: #888888;
+}
+#a3{
+    float: left;
+    color: #888888;
+}
+#a4{
+    float: left;
+    color: #888888;
+}
+.moment-img{
+    width: 40px;
+    height: 40px;
+}
+.moment-left{
+    float: left;
+    width: 50px;
+}
+.moment-right{
+    float: left;
+    width: 620px;
+}
+.moment-top{
+
+}

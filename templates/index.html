@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>知乎</title>
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/myCarousel.css')}}" />
+    <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation" >
+    <div class="container-fluid" style="background-color: #1b6d85;">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: white;padding-left: 120px;font-size: 28px;">知乎</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div style="padding: 8px 10px " class="input-group input-group-sm">
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="搜索你感兴趣的内容" style="width:300px;height:33px;">
+                            <span class="input-group-btn">
+						    <button class="btn btn-default" type="button" onmouseover="mOver(this)" onmouseout="mOut(this)" style="  height:33px;">
+                            搜索
+                            </button>
+					        </span>
+                        </div>
+                </form>
+                </div>
+                </li>
+                <li ><a href="#" style="color: white" onmouseover="nOver(this)" onmouseout="nOut(this)">首页</a></li>
+                <li><a href="#" style="color: white" onmouseover="nOver(this)" onmouseout="nOut(this)">话题</a></li>
+                <li><a href="#" style="color: white" onmouseover="nOver(this)" onmouseout="nOut(this)">发现</a></li>
+                <li><a href="#" style="color: white" onmouseover="nOver(this)" onmouseout="nOut(this)">消息</a></li>
+                <li style="padding-top: 7px;padding-left: 100px;">
+
+                    <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+                        提问
+                    </button>
+                    <!-- 模态框（Modal） -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        提问
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" class="form-control" placeholder="输入问题...">
+                                    <br />
+                                    <textarea name="txt" class="form-control" style="height: 150px; resize:none" placeholder="内容"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        提交更改
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;padding-left: 30px;background-color: #1b6d85" onmouseover="dropdownOpen()">
+                        用户
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" >
+                        <li><a href="#" onmouseover="vOver(this)" onmouseout="vOut(this)">我的主页</a></li>
+                        <li><a href="#" onmouseover="vOver(this)" onmouseout="vOut(this)">私信</a></li>
+                        <li><a href="#" onmouseover="vOver(this)" onmouseout="vOut(this)">设置</a></li>
+                        <li><a href="#" onmouseover="vOver(this)" onmouseout="vOut(this)">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="section" style="line-height:30px;;height:300px;width:800px;float:left;padding-left: 120px;margin-top: 15px;" >
+    <img src="{{static_url('pic/1.PNG')}}" style="float: left;height: 50px;width: 50px;" class="img-rounded">
+    <div>
+        <a href="#" class="list-group-item" style="float:left;padding: 7px 30px;border:0;margin: 5px;color: #1b6d85"><span class="glyphicon glyphicon-comment"></span> 提问</a>
+        <a href="#" class="list-group-item" style="float:left;padding: 7px 30px;border:0;margin: 5px;color: #1b6d85"><span class="glyphicon glyphicon-list-alt"></span> 回答</a>
+        <a href="#" class="list-group-item" style="float:left;padding: 7px 30px;border:0;margin: 5px;color: #1b6d85"><span class="glyphicon glyphicon-book"></span> 文章</a>
+        <a href="#" class="list-group-item" style="float:left;padding: 7px 30px;border:0;margin: 5px;color: #1b6d85"><span class="glyphicon glyphicon-edit"></span> 草稿</a>
+    </div>
+    <br />
+    <p style="margin-top: 70px;color: #1b6d85"><span class="glyphicon glyphicon-align-left"></span> 最新动态 <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span>设置</a></p>
+    <hr />
+    <div id="div-moment">
+
+    </div>
+</div>
+
+<div id="rightsection" style="width:320px;float:left;padding:30px;">
+    <div>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-bookmark"></span> 我的收藏 <span class="badge" >514</span> </a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-tag"></span> 我关注的问题 <span class="badge" >12</span></a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-bell"></span> 邀请我的回答 <span class="badge" >3</span></a>
+        <hr />
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-list"> </span> 公共编辑动态 </a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-home"> </span> 社区服务中心</a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-copyright-mark"></span> 版权服务中心</a>
+        <hr />
+    </div>
+    <div>
+        <h3>知乎专栏</h3>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" ><span class="glyphicon glyphicon-bullhorn"></span> 专栏.发现</a>
+        <hr />
+        <h4>
+            知乎live
+            <a href="#" target="_blank" class="ass">查看全部 »</a>
+        </h4>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >办公室劳损的自我管理 </a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >线上心理咨询，你准备好了么</a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >如何写好一个故事，非虚构创作指南</a>
+        <hr />
+        <h4>
+            知乎圆桌
+            <a href="#" target="_blank" class="ass">查看全部 »</a>
+        </h4>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >海外投资初探 </a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >川菜不只麻辣</a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >好好开车 · 养护指南</a>
+        <hr />
+        <h4>
+            知乎书店
+            <a href="#" target="_blank" class="ass">查看全部 »</a>
+        </h4>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >原来你是这样的日剧 </a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >专注力管理：让你的努力更高效</a>
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >刑事辩护指导书</a>
+        <hr />
+
+        <a href="#" class="list-group-item" onmouseover="mOver(this)" onmouseout="mOut(this)" >下载 App</a>
+        <hr />
+        <ul style="list-style:none;padding: 8px;color: gray">
+            <li style="float:left "><a href="#"> 刘看山&nbsp </a></li>
+            <li style="float:left"><a href="#"> 知乎指南&nbsp </a></li>
+            <li style="float:left"><a href="#"> 建议反馈&nbsp </a></li>
+            <li style="float:left"><a href="#"> 移动应用&nbsp </a></li>
+            <li style="float:left"><a href="#"> 加入知乎&nbsp </a></li>
+            <li style="float:left"><a href="#"> 知乎协议&nbsp </a></li>
+            <li style="float:left"><a href="#"> 举报投诉&nbsp </a></li>
+            <li style="float:left"><a href="#"> 联系我们&nbsp </a></li>
+        </ul>
+
+    </div>
+</div>
+
+<script>
+    function mOver(obj)
+    {
+        obj.style.backgroundColor="#9acfea"
+    }
+
+    function mOut(obj)
+    {
+        obj.style.backgroundColor="white"
+    }
+
+    function nOver(obj)
+    {
+        obj.style.color="#9acfea"
+    }
+
+    function nOut(obj)
+    {
+        obj.style.color="white"
+    }
+
+    function vOver(obj)
+    {
+        obj.style.backgroundColor="#9acfea"
+    }
+
+    function vOut(obj)
+    {
+        obj.style.backgroundColor="white"
+    }
+
+
+
+    $(document).ready(function(){
+        dropdownOpen();//调用
+    });
+
+    function dropdownOpen() {
+
+        var $dropdownLi = $('li.dropdown');
+
+        $dropdownLi.mouseover(function () {
+            $(this).addClass('open');
+        }).mouseout(function () {
+            $(this).removeClass('open');
+        });
+    }
+
+    var i=0;
+    for(i;i<6;i++) {
+        var div1 = document.createElement("div");
+        var div2 = document.createElement("div");
+        var div3 = document.createElement("div");
+        var img = document.createElement("img");
+        var p1 = document.createElement("p");
+        var a1 = document.createElement("a");
+        var p2 = document.createElement("p");
+        var a2 = document.createElement("a");
+        var a3 = document.createElement("a");
+        var a4 = document.createElement("a");
+        var hr = document.createElement("hr");
+        var br = document.createElement("br");
+
+        p1.setAttribute("class", "moment");
+        a1.setAttribute("class", "moment-title");
+        p2.setAttribute("class", "moment-content");
+        div1.setAttribute("class", "moment-top");
+        div2.setAttribute("class", "moment-left");
+        div3.setAttribute("class", "moment-right");
+        a2.setAttribute("class", "list-group-item");
+        a3.setAttribute("class", "list-group-item");
+        a4.setAttribute("class", "list-group-item");
+        a2.setAttribute("id", "a2");
+        a3.setAttribute("id", "a3");
+        a4.setAttribute("id", "a4");
+        img.setAttribute("class", "moment-img");
+        img.setAttribute("src", "{{static_url('pic/li.PNG')}}");
+        a1.setAttribute("href", "#");
+        a2.setAttribute("href", "#");
+        a3.setAttribute("href", "#");
+        a4.setAttribute("href", "#");
+
+
+        var text1 = document.createTextNode("很多人赞了 乐歪歪 在 女神进化论 中发布的文章");
+        var text2 = document.createTextNode("有哪些百搭不累，便宜好看的平底鞋草单推荐？| 女神进化论");
+        var text3 = document.createTextNode("天气越来越暖和，是穿单鞋的时候啦。歪歪自己感觉平底单鞋是最实用的，好看又不累。基本上，能从春天一直能穿到秋天，买一双穿半年也是没谁了。小猴子们对于平底单鞋的热情也很高涨。这一期「什么值得买」，歪歪就总结了大家对于平底单鞋的投稿。");
+        var text4 = document.createTextNode("关注问题");
+        var text5 = document.createTextNode("评论");
+        var text6 = document.createTextNode("作者保留权利");
+
+        div2.appendChild(img);
+
+        p1.appendChild(text1);
+        a1.appendChild(text2);
+        p2.appendChild(text3);
+        div3.appendChild(p1);
+        div3.appendChild(a1);
+        div3.appendChild(p2);
+        div3.appendChild(a2);
+        div3.appendChild(a3);
+        div3.appendChild(a4);
+
+        a2.appendChild(text4);
+        a3.appendChild(text5);
+        a4.appendChild(text6);
+
+        div1.appendChild(div2);
+        div1.appendChild(div3);
+
+
+
+        var para=document.getElementById("div-moment");
+        para.appendChild(div1);
+    }
+
+
+</script>
+</body>
+</html>
