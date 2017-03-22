@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>知乎</title>
     <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="{{static_url('css/myCarousel.css')}}" >-->
-    <link rel="stylesheet" type="text/css" href="../static/css/myCarousel.css">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/myCarousel.css')}}" >
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/myCarousel.css">-->
     <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
 </head>
 <body>
 
@@ -24,7 +25,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="搜索你感兴趣的内容" style="width:300px;height:33px;">
                             <span class="input-group-btn">
-						    <button class="btn btn-default" type="button" onmouseover="mOver(this)" onmouseout="mOut(this)" style="  height:33px;">
+						    <button class="btn btn-primary" type="button"  style="height:33px;">
                             搜索
                             </button>
 					        </span>
@@ -164,11 +165,13 @@
     function mOver(obj)
     {
         obj.style.backgroundColor="#9acfea"
+        obj.style.color="darkslateblue"
     }
 
     function mOut(obj)
     {
         obj.style.backgroundColor="white"
+        obj.style.color="#555"
     }
 
     function nOver(obj)
@@ -186,11 +189,23 @@
         obj.style.backgroundColor="#9acfea"
     }
 
-    function vOut(obj)
-    {
-        obj.style.backgroundColor="white"
-    }
+//    function vOut(obj)
+//    {
+//        obj.style.backgroundColor="white"
+//    }
 
+    $(document).ready(function(){
+            $(".moment-top").mouseover(function(){
+                $(".a5").show();
+                $(".a6").show();
+                $(".a7").show();
+            });
+            $(".moment-top").mouseout(function(){
+                $(".a5").hide();
+                $(".a6").hide();
+                $(".a7").hide();
+            });
+    });
 
 
     $(document).ready(function(){
@@ -220,6 +235,9 @@
         var a2 = document.createElement("a");
         var a3 = document.createElement("a");
         var a4 = document.createElement("a");
+        var a5 = document.createElement("a");
+        var a6 = document.createElement("a");
+        var a7 = document.createElement("a");
         var hr = document.createElement("hr");
         var br = document.createElement("br");
 
@@ -229,19 +247,30 @@
         div1.setAttribute("class", "moment-top");
         div2.setAttribute("class", "moment-left");
         div3.setAttribute("class", "moment-right");
-        a2.setAttribute("class", "list-group-item");
-        a3.setAttribute("class", "list-group-item");
-        a4.setAttribute("class", "list-group-item");
-        a2.setAttribute("id", "a2");
-        a3.setAttribute("id", "a3");
-        a4.setAttribute("id", "a4");
+        a2.setAttribute("class", "list-group-item a2");
+        a3.setAttribute("class", "list-group-item a3");
+        a4.setAttribute("class", "list-group-item a4");
+        a5.setAttribute("class", "list-group-item a5");
+        a6.setAttribute("class", "list-group-item a6");
+        a7.setAttribute("class", "list-group-item a7");
+//        a2.setAttribute("id", "a2");
+//        a3.setAttribute("id", "a3");
+//        a4.setAttribute("id", "a4");
+//        a5.setAttribute("id", "a5");
+//        a6.setAttribute("id", "a6");
+//        a7.setAttribute("id", "a7");
+
         img.setAttribute("class", "moment-img");
         img.setAttribute("src", "{{static_url('pic/li.PNG')}}");
         a1.setAttribute("href", "#");
         a2.setAttribute("href", "#");
         a3.setAttribute("href", "#");
         a4.setAttribute("href", "#");
-
+        a5.setAttribute("href", "#");
+        a6.setAttribute("href", "#");
+        a7.setAttribute("href", "#");
+//        div1.addEventListener("mouseover", bOver, false);
+//        div1.addEventListener("mouseout", bOut, false)
 
         var text1 = document.createTextNode("很多人赞了 乐歪歪 在 女神进化论 中发布的文章");
         var text2 = document.createTextNode("有哪些百搭不累，便宜好看的平底鞋草单推荐？| 女神进化论");
@@ -249,6 +278,9 @@
         var text4 = document.createTextNode("关注问题");
         var text5 = document.createTextNode("评论");
         var text6 = document.createTextNode("作者保留权利");
+        var text7 = document.createTextNode("感谢");
+        var text8 = document.createTextNode("分享");
+        var text9 = document.createTextNode("收藏");
 
         div2.appendChild(img);
 
@@ -260,20 +292,32 @@
         div3.appendChild(p2);
         div3.appendChild(a2);
         div3.appendChild(a3);
+        div3.appendChild(a5);
+        div3.appendChild(a6);
+        div3.appendChild(a7);
         div3.appendChild(a4);
 
         a2.appendChild(text4);
         a3.appendChild(text5);
         a4.appendChild(text6);
+        a5.appendChild(text7);
+        a6.appendChild(text8);
+        a7.appendChild(text9);
 
         div1.appendChild(div2);
         div1.appendChild(div3);
 
+        $("#a5").hide();
+        $("#a6").hide();
+        $("#a7").hide();
 
 
         var para=document.getElementById("div-moment");
         para.appendChild(div1);
     }
+
+
+
 
 
 </script>

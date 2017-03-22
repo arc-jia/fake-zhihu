@@ -6,6 +6,26 @@ h3{
 h4{
     color: #2aabd2;
 }
+
+.container-fluid{
+    width: 100%;
+    z-index:20;
+    margin-top: -1px;
+}
+
+.modal-backdrop.in {
+    position: fixed;
+    filter: alpha(opacity=50);
+    opacity:0.5;
+    z-index:90;
+}
+
+
+.modal-dialog{
+    width: 500px;
+    z-index: 200;
+}
+
 a.ass{
     float: right;
     font-size: 14px;
@@ -30,15 +50,27 @@ p.moment-content{
     margin-bottom: 0px;
 }
 
-#a2{
+.a2{
     float: left;
     color: #888888;
 }
-#a3{
+.a3{
     float: left;
     color: #888888;
 }
-#a4{
+.a4{
+    float: left;
+    color: #888888;
+}
+.a5{
+    float: left;
+    color: #888888;
+}
+.a6{
+    float: left;
+    color: #888888;
+}
+.a7{
     float: left;
     color: #888888;
 }
@@ -54,6 +86,8 @@ p.moment-content{
     float: left;
     width: 620px;
 }
-.moment-top{
 
+#a6{
+    float: left;
+    color: darkslateblue;
 }
